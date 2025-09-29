@@ -1,0 +1,37 @@
+# -------------------------------
+# file: config.yaml
+# -------------------------------
+"""
+seed: 42
+model_name: facebook/mbart-large-50
+max_len: 160
+batch_size: 8
+num_epochs: 5
+lr: 3e-5
+weight_decay: 0.01
+warmup_ratio: 0.06
+num_workers: 4
+
+# task weights
+lambda_offense_sent: 0.5
+lambda_offense_tok: 0.25
+lambda_pos: 0.25
+lambda_dep: 0.25
+lambda_contrastive: 0.05
+
+# datasets ( TSV paths)
+parallel_tsv: data/parallel_en_ta.tsv        # columns: en \t ta
+offense_tsv: data/offense_en_ta.tsv         # columns: text \t label (0..C-1)
+code_mixed_tsv: data/codemixed_tanglish.tsv # optional for domain finetune
+
+# offense taxonomy (4-class baseline)
+offense_labels: [hate, profanity, sarcasm, threats]
+
+# spaCy & stanza models
+spacy_en: en_core_web_sm
+stanza_ta: ta
+
+# checkpointing
+output_dir: outputs/
+save_every: 1
+"""
